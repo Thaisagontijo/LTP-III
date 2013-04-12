@@ -9,7 +9,22 @@ public class UsuarioSistema extends Pessoa{
     private int id;
     private String usuario;
     private String senha;
+    
+    public UsuarioSistema(){
+        
+    } 
 
+    public UsuarioSistema(int id, String usuario, String senha) {
+        this.id = id;
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioSistema{" + "usuario=" + usuario + '}';
+    }
+    
 
     public String getUsuario() {
         return usuario;
@@ -28,7 +43,4 @@ public class UsuarioSistema extends Pessoa{
     }
     
     
-    public void abrir(){
-        
-    }
 }

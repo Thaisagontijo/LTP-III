@@ -9,6 +9,47 @@ public class Telefone {
     private int ddd;
     private int numero;
 
+    public Telefone(){
+        
+    }
+    public Telefone(int id, int ddd, int numero) {
+        this.id = id;
+        this.ddd = ddd;
+        this.numero = numero;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + this.id;
+        hash = 41 * hash + this.ddd;
+        hash = 41 * hash + this.numero;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Telefone other = (Telefone) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.ddd != other.ddd) {
+            return false;
+        }
+        if (this.numero != other.numero) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
     public int getId() {
         return id;
     }

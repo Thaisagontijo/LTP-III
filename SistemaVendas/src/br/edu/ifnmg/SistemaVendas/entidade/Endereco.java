@@ -4,6 +4,8 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
+import java.util.Objects;
+
 public class Endereco {
     private int id;
     private String rua;
@@ -13,7 +15,78 @@ public class Endereco {
     private int cep;
     private String cidade;
     private String estado;
+    
+    public Endereco(){
+         
+     }
+    public Endereco(int id, String rua, int numero, String complemento, String bairro, int cep, String cidade, String estado) {
+        this.id = id;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + this.id;
+        hash = 29 * hash + Objects.hashCode(this.rua);
+        hash = 29 * hash + this.numero;
+        hash = 29 * hash + Objects.hashCode(this.complemento);
+        hash = 29 * hash + Objects.hashCode(this.bairro);
+        hash = 29 * hash + this.cep;
+        hash = 29 * hash + Objects.hashCode(this.cidade);
+        hash = 29 * hash + Objects.hashCode(this.estado);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Endereco other = (Endereco) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.rua, other.rua)) {
+            return false;
+        }
+        if (this.numero != other.numero) {
+            return false;
+        }
+        if (!Objects.equals(this.complemento, other.complemento)) {
+            return false;
+        }
+        if (!Objects.equals(this.bairro, other.bairro)) {
+            return false;
+        }
+        if (this.cep != other.cep) {
+            return false;
+        }
+        if (!Objects.equals(this.cidade, other.cidade)) {
+            return false;
+        }
+        if (!Objects.equals(this.estado, other.estado)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cep=" + cep + ", cidade=" + cidade + ", estado=" + estado + '}';
+    }
+
+    
+    
     public int getId() {
         return id;
     }
