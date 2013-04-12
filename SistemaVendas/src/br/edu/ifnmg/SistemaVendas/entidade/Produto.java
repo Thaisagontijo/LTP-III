@@ -4,7 +4,13 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
-
 public class Produto {
+ private int id;
+ private String descricao;
+ private String nome;
+ private double valor_unitario_compra;
+ private double valor_unitario_venda;
+ 
+ 
     
 }

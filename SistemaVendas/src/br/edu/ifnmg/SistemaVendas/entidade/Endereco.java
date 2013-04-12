@@ -4,15 +4,14 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
-
 public class Endereco {
- private int id;
+    private int id;
     private String rua;
     private int numero;
     private String complemento;
     private String bairro;
     private int cep;
-    private Cidade cidade;
+    private String cidade;
     private String estado;
 
     public int getId() {
@@ -63,20 +62,38 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public Cidade getCidade() {
+   
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getCidade() {
         return cidade;
     }
 
-    public void setCidade(Cidade cidade) {
+    public void setCidade(String cidade) {
         this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
+    
+    public void abrir(){
+        
+    }
+    
+    public void insere(){
+        
+    }
+    
+    public void alterar(){
+        
+    }
+    
+    public void remove(){
+        
+    }         
     
 }

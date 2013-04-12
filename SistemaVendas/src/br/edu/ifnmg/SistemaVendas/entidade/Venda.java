@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
-
 public class Venda {
     
 }

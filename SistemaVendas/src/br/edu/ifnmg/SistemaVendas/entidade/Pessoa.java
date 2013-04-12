@@ -4,13 +4,12 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
+import br.edu.ifnmg.SistemaVendas.entidade.Telefone;
 import java.util.Date;
 import java.util.List;
 
-
 public class Pessoa {
-    
-  private int id;
+    private int id;
     private String nome;
     private Date dataNascimento;       
     private int cpf;
@@ -82,7 +81,7 @@ public class Pessoa {
     public void setEmails(List<Email> emails) {
         this.emails = emails;
     }
-
+    
     public void addTelefone(Telefone telefone){
         this.telefones.add(telefone);
     }
@@ -102,4 +101,21 @@ public class Pessoa {
     public void addEmail(Email email){
         emails.add(email);
     }
+    
+    public void removeEmail(Email email){
+        emails.remove(email);
+    }
+    
+    public void insere(){
+        
+    }
+    
+    public void alterar(){
+        
+    }
+    
+    public void remove(){
+        
+    }    
+    
 }

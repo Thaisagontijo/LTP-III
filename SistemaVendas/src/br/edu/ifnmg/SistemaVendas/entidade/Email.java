@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
-
 public class Email {
    private int id;
    private String endereco;
@@ -24,5 +23,22 @@ public class Email {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+    
+    
+    public void abrir(){
+        
+    }
+    
+    public void insere(){
+        
+    }
+    
+    public void alterar(){
+        
+    }
+    
+    public void remove(){
+        
+    }         
     
 }

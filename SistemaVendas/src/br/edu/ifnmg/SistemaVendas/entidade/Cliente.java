@@ -4,7 +4,14 @@
  */
 package br.edu.ifnmg.SistemaVendas.entidade;
 
+public class Cliente extends Pessoa {
+    private int id;
+    private String cargo;
 
-public class Cliente {
     
+
+
+    public void abrir(){
+        
+    }    
 }
