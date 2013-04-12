@@ -4,11 +4,8 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
-/**
- *
- * @author Ailton
- */
-public class frmPrincipal extends javax.swing.JInternalFrame {
+
+public class frmPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form frmPrincipal
@@ -26,19 +23,259 @@ public class frmPrincipal extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar4 = new javax.swing.JMenuBar();
+        MenuCadastrar = new javax.swing.JMenu();
+        MenuItemClienteCadastro = new javax.swing.JMenuItem();
+        MenuItemProdutoCadastro = new javax.swing.JMenuItem();
+        MenuItemPagamentoCadastro = new javax.swing.JMenuItem();
+        MenuItemUsuarioCadastro = new javax.swing.JMenuItem();
+        MenuListagem = new javax.swing.JMenu();
+        MenuItemListarClientes = new javax.swing.JMenuItem();
+        MenuItemListarprodutos = new javax.swing.JMenuItem();
+        MenuItemListarPagamento = new javax.swing.JMenuItem();
+        MenuItemListarUsuario = new javax.swing.JMenuItem();
+        MenuVendas = new javax.swing.JMenu();
+        MenuItemIniciarVendas = new javax.swing.JMenuItem();
+        MenuHistorico = new javax.swing.JMenu();
+        MenuItemHisData = new javax.swing.JMenuItem();
+        MenuItemHisCliente = new javax.swing.JMenuItem();
+        MenuItemHisUsuario = new javax.swing.JMenuItem();
+        MenuItemHisProduto = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Janela Principal");
+
+        MenuCadastrar.setText("Cadastro");
+
+        MenuItemClienteCadastro.setText("Cliente");
+        MenuItemClienteCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemClienteCadastroActionPerformed(evt);
+            }
+        });
+        MenuCadastrar.add(MenuItemClienteCadastro);
+
+        MenuItemProdutoCadastro.setText("Produto");
+        MenuItemProdutoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemProdutoCadastroActionPerformed(evt);
+            }
+        });
+        MenuCadastrar.add(MenuItemProdutoCadastro);
+
+        MenuItemPagamentoCadastro.setText("Forma de Pagamento");
+        MenuItemPagamentoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemPagamentoCadastroActionPerformed(evt);
+            }
+        });
+        MenuCadastrar.add(MenuItemPagamentoCadastro);
+
+        MenuItemUsuarioCadastro.setText("Usuário Sistema");
+        MenuItemUsuarioCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemUsuarioCadastroActionPerformed(evt);
+            }
+        });
+        MenuCadastrar.add(MenuItemUsuarioCadastro);
+
+        jMenuBar4.add(MenuCadastrar);
+
+        MenuListagem.setText("Listagem");
+
+        MenuItemListarClientes.setText("Listar Clientes");
+        MenuItemListarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemListarClientesActionPerformed(evt);
+            }
+        });
+        MenuListagem.add(MenuItemListarClientes);
+
+        MenuItemListarprodutos.setText("Listar Produtos");
+        MenuItemListarprodutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemListarprodutosActionPerformed(evt);
+            }
+        });
+        MenuListagem.add(MenuItemListarprodutos);
+
+        MenuItemListarPagamento.setText("Listar Formas de Pagamento");
+        MenuItemListarPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemListarPagamentoActionPerformed(evt);
+            }
+        });
+        MenuListagem.add(MenuItemListarPagamento);
+
+        MenuItemListarUsuario.setText("Usuários do Sistema");
+        MenuItemListarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemListarUsuarioActionPerformed(evt);
+            }
+        });
+        MenuListagem.add(MenuItemListarUsuario);
+
+        jMenuBar4.add(MenuListagem);
+
+        MenuVendas.setText("Vendas");
+
+        MenuItemIniciarVendas.setText("Iniciar Venda");
+        MenuItemIniciarVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemIniciarVendasActionPerformed(evt);
+            }
+        });
+        MenuVendas.add(MenuItemIniciarVendas);
+
+        jMenuBar4.add(MenuVendas);
+
+        MenuHistorico.setText("Histórico de Vendas");
+
+        MenuItemHisData.setText("Por Data");
+        MenuHistorico.add(MenuItemHisData);
+
+        MenuItemHisCliente.setText("Por Cliente");
+        MenuHistorico.add(MenuItemHisCliente);
+
+        MenuItemHisUsuario.setText("Por Usuário");
+        MenuHistorico.add(MenuItemHisUsuario);
+
+        MenuItemHisProduto.setText("Por Produto");
+        MenuHistorico.add(MenuItemHisProduto);
+
+        jMenuBar4.add(MenuHistorico);
+
+        setJMenuBar(jMenuBar4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MenuItemUsuarioCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemUsuarioCadastroActionPerformed
+        frmCadastroUsuarioSistema janela = new frmCadastroUsuarioSistema();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemUsuarioCadastroActionPerformed
+
+    private void MenuItemIniciarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemIniciarVendasActionPerformed
+        frmVenda janela = new frmVenda();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemIniciarVendasActionPerformed
+
+    private void MenuItemClienteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemClienteCadastroActionPerformed
+        frmCadastroCliente janela = new frmCadastroCliente();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemClienteCadastroActionPerformed
+
+    private void MenuItemProdutoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemProdutoCadastroActionPerformed
+        frmCadastroProduto janela = new frmCadastroProduto();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemProdutoCadastroActionPerformed
+
+    private void MenuItemPagamentoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemPagamentoCadastroActionPerformed
+        frmCadastroFormaPagamento janela = new frmCadastroFormaPagamento();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemPagamentoCadastroActionPerformed
+
+    private void MenuItemListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemListarClientesActionPerformed
+        frmListarCliente janela = new frmListarCliente();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemListarClientesActionPerformed
+
+    private void MenuItemListarprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemListarprodutosActionPerformed
+        frmListarProdutos janela = new frmListarProdutos();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemListarprodutosActionPerformed
+
+    private void MenuItemListarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemListarPagamentoActionPerformed
+        frmListarFormaPagamento janela = new frmListarFormaPagamento();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemListarPagamentoActionPerformed
+
+    private void MenuItemListarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemListarUsuarioActionPerformed
+        frmListarUsuarioSistema janela = new frmListarUsuarioSistema();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemListarUsuarioActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new frmPrincipal().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuCadastrar;
+    private javax.swing.JMenu MenuCadastro;
+    private javax.swing.JMenu MenuCadastro1;
+    private javax.swing.JMenu MenuCadastro2;
+    private javax.swing.JMenu MenuHistorico;
+    private javax.swing.JMenuItem MenuItemCliente;
+    private javax.swing.JMenuItem MenuItemCliente1;
+    private javax.swing.JMenuItem MenuItemCliente2;
+    private javax.swing.JMenuItem MenuItemClienteCadastro;
+    private javax.swing.JMenuItem MenuItemHisCliente;
+    private javax.swing.JMenuItem MenuItemHisData;
+    private javax.swing.JMenuItem MenuItemHisProduto;
+    private javax.swing.JMenuItem MenuItemHisUsuario;
+    private javax.swing.JMenuItem MenuItemIniciarVendas;
+    private javax.swing.JMenuItem MenuItemListarClientes;
+    private javax.swing.JMenuItem MenuItemListarPagamento;
+    private javax.swing.JMenuItem MenuItemListarUsuario;
+    private javax.swing.JMenuItem MenuItemListarprodutos;
+    private javax.swing.JMenuItem MenuItemPagamentoCadastro;
+    private javax.swing.JMenuItem MenuItemProdutoCadastro;
+    private javax.swing.JMenuItem MenuItemUsuarioCadastro;
+    private javax.swing.JMenu MenuListagem;
+    private javax.swing.JMenu MenuVendas;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
     // End of variables declaration//GEN-END:variables
 }

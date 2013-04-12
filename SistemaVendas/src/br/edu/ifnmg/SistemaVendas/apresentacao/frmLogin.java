@@ -8,12 +8,12 @@ package br.edu.ifnmg.SistemaVendas.apresentacao;
  *
  * @author Ailton
  */
-public class frmLongin extends javax.swing.JFrame {
+public class frmLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmLongin
+     * Creates new form frmLogin
      */
-    public frmLongin() {
+    public frmLogin() {
         initComponents();
     }
 
@@ -113,10 +113,12 @@ public class frmLongin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        frmCadastroCliente janela = new frmCadastroCliente();
+        frmPrincipal janela = new frmPrincipal();
+        
         janela.setVisible(true);
-        this.dispose();
-        this.setVisible(false);
+        
+       this.dispose();
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -136,20 +138,20 @@ public class frmLongin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmLongin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmLongin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmLongin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmLongin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmLongin().setVisible(true);
+                new frmLogin().setVisible(true);
             }
         });
     }

@@ -35,8 +35,12 @@ public class Produto {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws Exception {
+        if(nome.length()<3 && nome.length()> 250){
+        this.nome = nome;}
+        throw new Exception ("O nome tem que ser maior que 3 e menor que 250 caracteres");
+        
+        
     }
 
     public double getValor_unitario_compra() {
