@@ -4,6 +4,8 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ailton
@@ -113,12 +115,18 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        frmPrincipal janela = new frmPrincipal();
+        if(txtUsuario.getText().isEmpty() && txtSenha.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Todos os campos devem ser preenchidos");
+        } else {
+            
+     frmPrincipal janela = new frmPrincipal();
+        
         
         janela.setVisible(true);
         
        this.dispose();
-        
+        }
+    
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

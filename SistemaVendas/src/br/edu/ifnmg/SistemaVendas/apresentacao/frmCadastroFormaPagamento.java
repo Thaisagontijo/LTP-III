@@ -4,10 +4,9 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
-/**
- *
- * @author Ailton
- */
+import javax.swing.JOptionPane;
+
+
 public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
 
     /**
@@ -29,7 +28,6 @@ public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
         lbFormaPagamento = new javax.swing.JLabel();
         txtFormaPagamento = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
-        btnListar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
         setClosable(true);
@@ -40,8 +38,11 @@ public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
         lbFormaPagamento.setText("Forma de Pagamento: ");
 
         btnSalvar.setText("Salvar");
-
-        btnListar.setText("Listar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,45 +56,59 @@ public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbFormaPagamento)
-                    .addComponent(btnSalvar))
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lbFormaPagamento)
                         .addGap(20, 20, 20)
-                        .addComponent(btnListar)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnCancelar))
-                    .addComponent(txtFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(btnSalvar)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnCancelar)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbFormaPagamento)
                     .addComponent(txtFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnListar)
-                    .addComponent(btnSalvar))
-                .addContainerGap())
+                    .addComponent(btnSalvar)
+                    .addComponent(btnCancelar))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+       int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Cancelar?","Deseja Cancelar?", JOptionPane.OK_CANCEL_OPTION);
+        if (JOptionPane.OK_OPTION == confirmar){
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+       int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Salvar?","Deseja Salvar?", JOptionPane.OK_CANCEL_OPTION);
+        if (JOptionPane.OK_OPTION == confirmar){
+        
+            if(txtFormaPagamento.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(rootPane, "O campo Forma de Pagamento deve ser preenchido");
+        }
+            else{
+                JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+                 
+            }
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel lbFormaPagamento;
     private javax.swing.JTextField txtFormaPagamento;
