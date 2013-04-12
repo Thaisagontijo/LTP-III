@@ -8,12 +8,12 @@ package br.edu.ifnmg.SistemaVendas.apresentacao;
  *
  * @author Ailton
  */
-public class frmFormaPagamento extends javax.swing.JInternalFrame {
+public class frmListarProdutos extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frmFormaPagamento
+     * Creates new form frmListarProdutos
      */
-    public frmFormaPagamento() {
+    public frmListarProdutos() {
         initComponents();
     }
 
@@ -29,7 +29,7 @@ public class frmFormaPagamento extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Cadastro Forma de Pagamento");
+        setTitle("Produtos Cadastrados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
