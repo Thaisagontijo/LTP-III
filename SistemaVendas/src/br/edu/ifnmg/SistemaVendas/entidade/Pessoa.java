@@ -5,6 +5,7 @@
 package br.edu.ifnmg.SistemaVendas.entidade;
 
 import br.edu.ifnmg.SistemaVendas.entidade.Telefone;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -113,8 +114,15 @@ public class Pessoa {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+     public void setDataNascimento(Date datanascimento) throws Exception{
+        SimpleDateFormat dtNascimento = new SimpleDateFormat("dd/MM/yyyy");
+        Date data = dtNascimento.parse("01/01/1900"); 
+        
+        if (datanascimento.after(data)){
+            this.dataNascimento = dataNascimento;
+        } else {
+            throw new Exception("Data de Nascimento Inválida. A data deve ser superior ou igual a 01/01/1900.");
+        }
     }
 
     public int getCpf() {
