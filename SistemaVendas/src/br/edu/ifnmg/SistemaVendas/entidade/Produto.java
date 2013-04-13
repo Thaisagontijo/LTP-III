@@ -55,10 +55,13 @@ public class Produto {
         return valor_unitario_venda;
     }
 
-    public void setValor_unitario_venda(double valor_unitario_venda) {
-        this.valor_unitario_venda = valor_unitario_venda;
-    }
-
+    public void setValor_unitario_venda(double valor_unitario_venda) throws Exception {
+        if(valor_unitario_venda >0){
+         this.valor_unitario_venda = valor_unitario_venda;
+}
+        throw new Exception ("O valor tem que ser maior que 0");
+        }
+            
     @Override
     public String toString() {
         return "Produto{" + "nome=" + nome + ", valor_unitario_venda=" + valor_unitario_venda + '}';
@@ -71,7 +74,7 @@ public class Produto {
         this.valor_unitario_compra = valor_unitario_compra;
         this.valor_unitario_venda = valor_unitario_venda;
     }
- 
+
  
     
 }

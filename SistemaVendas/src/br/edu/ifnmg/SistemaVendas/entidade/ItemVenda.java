@@ -36,9 +36,13 @@ public class ItemVenda {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
+    public void setQuantidade(int quantidade)throws Exception {
+        if(quantidade >0){
+          this.quantidade = quantidade;
+}
+        throw new Exception ("O valor tem que ser maior que 0");
+        }
+ 
 
     @Override
     public String toString() {
