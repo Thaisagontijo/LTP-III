@@ -55,16 +55,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtCliente" max="32767" attributes="0"/>
-                          <Component id="jTextField2" max="32767" attributes="0"/>
+                          <Component id="txtUsuario" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="lbQtd" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtQtd" min="-2" pref="79" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Component id="lbValor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -73,6 +65,11 @@
                   <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lbValor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,7 +84,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -104,17 +101,13 @@
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="lbValorTotal" min="-2" pref="11" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbQtd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtQtd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbValor" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="lbValor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnFecharVenda" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <EmptySpace pref="133" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,11 +116,6 @@
     <Component class="javax.swing.JLabel" name="lbCliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cliente:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbQtd">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Quantidade:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbValor">
@@ -173,13 +161,11 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="txtQtd">
-    </Component>
     <Component class="javax.swing.JLabel" name="lbValorTotal">
     </Component>
     <Component class="javax.swing.JButton" name="btnFecharVenda">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fechar Venda"/>
+        <Property name="text" type="java.lang.String" value="Concluir Venda"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFecharVendaActionPerformed"/>
@@ -189,13 +175,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Usuario: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="txtUsuario">
     </Component>
     <Component class="javax.swing.JButton" name="btnAdiciona">
       <Properties>

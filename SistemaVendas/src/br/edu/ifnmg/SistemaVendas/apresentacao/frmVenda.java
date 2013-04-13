@@ -4,6 +4,8 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ailton
@@ -28,17 +30,15 @@ public class frmVenda extends javax.swing.JInternalFrame {
 
         jTextField1 = new javax.swing.JTextField();
         lbCliente = new javax.swing.JLabel();
-        lbQtd = new javax.swing.JLabel();
         lbValor = new javax.swing.JLabel();
         txtCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
-        txtQtd = new javax.swing.JTextField();
         lbValorTotal = new javax.swing.JLabel();
         btnFecharVenda = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         btnAdiciona = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
 
@@ -50,8 +50,6 @@ public class frmVenda extends javax.swing.JInternalFrame {
         setTitle("Vendas");
 
         lbCliente.setText("Cliente:");
-
-        lbQtd.setText("Quantidade:");
 
         lbValor.setText("Valor Total:");
 
@@ -69,7 +67,7 @@ public class frmVenda extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblProduto);
         tblProduto.getColumnModel().getColumn(1).setResizable(false);
 
-        btnFecharVenda.setText("Fechar Venda");
+        btnFecharVenda.setText("Concluir Venda");
         btnFecharVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFecharVendaActionPerformed(evt);
@@ -77,6 +75,11 @@ public class frmVenda extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Usuario: ");
 
@@ -118,19 +121,16 @@ public class frmVenda extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCliente)
-                            .addComponent(jTextField2)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbQtd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(lbValor)
-                        .addGap(185, 185, 185)))
+                            .addComponent(txtUsuario))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdiciona)
                     .addComponent(btnRemove))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbValor)
+                .addGap(189, 189, 189))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +142,7 @@ public class frmVenda extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -155,15 +155,12 @@ public class frmVenda extends javax.swing.JInternalFrame {
                 .addGap(1, 1, 1)
                 .addComponent(lbValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbQtd)
-                    .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbValor))
-                .addGap(30, 30, 30)
+                .addComponent(lbValor)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFecharVenda)
                     .addComponent(btnCancelar))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         pack();
@@ -174,12 +171,36 @@ public class frmVenda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnAdicionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnAdicionaActionPerformed
 
     private void btnFecharVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharVendaActionPerformed
-        // TODO add your handling code here:
+        int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Salvar?","Deseja Salvar?", JOptionPane.OK_CANCEL_OPTION);
+        if (JOptionPane.OK_OPTION == confirmar){
+            
+            if(txtCliente.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(rootPane, "O campo Nome deve ser preenchido");
+        }
+               if(txtUsuario.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(rootPane, "O campo Usuário deve ser preenchido");
+        }
+                        
+        else {
+          
+                 JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+                 
+                 
+        }
+        }
     }//GEN-LAST:event_btnFecharVendaActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Cancelar?","Deseja Cancelar?", JOptionPane.OK_CANCEL_OPTION);
+        if (JOptionPane.OK_OPTION == confirmar){
+        
+        this.dispose();
+        }
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdiciona;
@@ -189,13 +210,11 @@ public class frmVenda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbCliente;
-    private javax.swing.JLabel lbQtd;
     private javax.swing.JLabel lbValor;
     private javax.swing.JLabel lbValorTotal;
     private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtCliente;
-    private javax.swing.JTextField txtQtd;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

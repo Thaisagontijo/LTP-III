@@ -114,7 +114,7 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
                 .addGroup(PanelEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbEmail2)
                     .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         tabPaneCliente.addTab("E-mail", PanelEmail);
@@ -190,7 +190,7 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
                 .addGroup(PanelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbCelular2)
                     .addComponent(txtCelular2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         tabPaneCliente.addTab("Telefone", PanelTelefone);
@@ -269,7 +269,7 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
                     .addGroup(PanelCadastroClienteLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(txtDtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         tabPaneCliente.addTab("Dados Gerais", PanelCadastroCliente);
@@ -368,7 +368,7 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
                 .addGroup(PanelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbCep)
                     .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         tabPaneCliente.addTab("Endereços", PanelEndereco);
@@ -405,7 +405,7 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
                 .addGroup(PanelUsuarioSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbSenha)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         tabPaneCliente.addTab("Usuario Sistema", PanelUsuarioSistema);
@@ -418,6 +418,11 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -438,7 +443,7 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabPaneCliente)
+                .addComponent(tabPaneCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelar)
@@ -535,6 +540,14 @@ public class frmCadastroUsuarioSistema extends javax.swing.JInternalFrame {
     private void txtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCepActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+       int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Cancelar?","Deseja Cancelar?", JOptionPane.OK_CANCEL_OPTION);
+        if (JOptionPane.OK_OPTION == confirmar){
+        
+        this.dispose();
+        }
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelCadastroCliente;

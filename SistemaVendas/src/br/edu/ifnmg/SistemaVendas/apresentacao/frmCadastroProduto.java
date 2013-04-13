@@ -165,7 +165,7 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Salvar?","Deseja Salvar?", JOptionPane.OK_CANCEL_OPTION);
+        int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Cancelar?","Deseja Cancelar?", JOptionPane.OK_CANCEL_OPTION);
         if (JOptionPane.OK_OPTION == confirmar){
         
         this.dispose();
