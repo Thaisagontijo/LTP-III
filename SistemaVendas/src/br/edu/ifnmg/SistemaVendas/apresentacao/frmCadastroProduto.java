@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import br.edu.ifnmg.SistemaVendas.entidade.Produto;
 import javax.swing.JOptionPane;
 
 
@@ -158,6 +159,14 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "O campo Valor Venda deve ser preenchido");
         }
             else {
+                Produto produto = new Produto();
+                produto.setDescricao(txtDescricao.getText());
+                produto.setNome(txtNome.getText());
+                produto.setValor_unitario_compra(Double.parseDouble(txtValor_Compra.getText()));
+                produto.setValor_unitario_venda(Double.parseDouble(txtValor_Venda.getText()));
+                produto.setEstoque(Integer.parseInt(txtQtd.getText()));
+                
+                
                 JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
                  
             }
