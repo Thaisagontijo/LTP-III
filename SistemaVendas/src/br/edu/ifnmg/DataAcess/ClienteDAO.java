@@ -43,7 +43,7 @@ public class ClienteDAO {
                int idPessoa = dao.Salvar(tmp);
                
                PreparedStatement comando = bd.getConexao()
-                       .prepareStatement("INSERT INTO Clientes (id_pessoa) VALUES(?)");
+                       .prepareStatement("INSERT INTO Clientes (Id_Pessoa) VALUES(?)");
                comando.setInt(1, idPessoa);
                
                comando.executeUpdate();
@@ -103,7 +103,7 @@ public class ClienteDAO {
            //pessoaDAO.Apagar(id);
            
            PreparedStatement comando = bd
-                   .getConexao().prepareStatement("DELETE FROM Clientes WHERE id = ?");
+                   .getConexao().prepareStatement("DELETE FROM Clientes WHERE Id_Cliente = ?");
            comando.setInt(1, id);
            comando.execute();
            comando.getConnection().commit();

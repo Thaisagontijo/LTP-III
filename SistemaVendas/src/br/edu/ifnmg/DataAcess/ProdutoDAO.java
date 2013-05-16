@@ -28,7 +28,7 @@ public class ProdutoDAO {
     public boolean Salvar(Produto obj) {
         try {
             if (obj.getId() == 0) {
-                PreparedStatement comando = bd.getConexao().prepareStatement("insert into produtos(descricao,nome,valor_unitario_compra,valor_unitario_venda,qtd) values(?,?,?,?,?)");
+                PreparedStatement comando = bd.getConexao().prepareStatement("insert into Produtos(Descricao,Nome,Valor_Unitario_Compra,Valor_Unitario_Venda,Quantidade) values(?,?,?,?,?)");
                 comando.setString(1, obj.getDescricao());
                 comando.setString(2, obj.getNome());
                 comando.setDouble(3, obj.getValor_unitario_compra());
@@ -37,7 +37,7 @@ public class ProdutoDAO {
                         
                 comando.executeUpdate();
             } else {
-                PreparedStatement comando = bd.getConexao().prepareStatement("update produtos set descricao = ?,nome = ?,valor_unitario_compra = ?,valor_unitario_venda = ?, qtd = ? where id = ?");
+                PreparedStatement comando = bd.getConexao().prepareStatement("update Produtos set Descricao = ?,Nome = ?,Valor_Unitario_Compra = ?,Valor_Unitario_Venda = ?, Quantidade = ? where Id_Produto = ?");
                 comando.setString(1, obj.getDescricao());
                 comando.setString(2, obj.getNome());
                 comando.setDouble(3, obj.getValor_unitario_compra());
@@ -59,7 +59,7 @@ public class ProdutoDAO {
             Produto produto = new Produto();
 
 
-            PreparedStatement comando = bd.getConexao().prepareStatement("select * from produtos where id = ?");
+            PreparedStatement comando = bd.getConexao().prepareStatement("select * from Produtos where Id_Produto = ?");
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
@@ -67,12 +67,12 @@ public class ProdutoDAO {
             resultado.first();
 
 
-            produto.setId(resultado.getInt("id"));
-            produto.setDescricao(resultado.getString("descricao"));
-            produto.setNome(resultado.getString("nome"));
-            produto.setValor_unitario_compra(resultado.getDouble("valor_unitario_compra"));
-            produto.setValor_unitario_venda(resultado.getDouble("valor_unitario_venda"));
-            produto.setEstoque(resultado.getInt("qtd"));
+            produto.setId(resultado.getInt("Id_Produto"));
+            produto.setDescricao(resultado.getString("Descricao"));
+            produto.setNome(resultado.getString("Nome"));
+            produto.setValor_unitario_compra(resultado.getDouble("Valor_Unitario_Compra"));
+            produto.setValor_unitario_venda(resultado.getDouble("Valor_Unitario_Venda"));
+            produto.setEstoque(resultado.getInt("Quantidade"));
 
 
             return produto;
@@ -87,7 +87,7 @@ public class ProdutoDAO {
 
     public boolean Apagar(Produto obj) {
         try {
-            PreparedStatement comando = bd.getConexao().prepareStatement("delete from produtos where id = ?");
+            PreparedStatement comando = bd.getConexao().prepareStatement("delete from Produtos where Id_Produtos = ?");
             comando.setInt(0, obj.getId());
             comando.executeUpdate();
             return true;
@@ -100,18 +100,18 @@ public class ProdutoDAO {
 
     public List<Produto> listarTodos() throws Exception{
         try {
-            PreparedStatement comando = bd.getConexao().prepareStatement("select * from produtos ");
+            PreparedStatement comando = bd.getConexao().prepareStatement("select * from Produtos ");
             ResultSet resultado = comando.executeQuery();
             
             List<Produto> produtos = new LinkedList<>();
             while (resultado.next()) {
                 
                 Produto tmp = new Produto();
-                tmp.setId(resultado.getInt("id"));
-                tmp.setDescricao(resultado.getString("descricao"));
-                tmp.setNome(resultado.getString("nome"));
-                tmp.setValor_unitario_compra(resultado.getDouble("valor_unitario_compra"));
-                tmp.setValor_unitario_venda(resultado.getDouble("valor_unitario_venda"));
+                tmp.setId(resultado.getInt("Id"));
+                tmp.setDescricao(resultado.getString("Descricao"));
+                tmp.setNome(resultado.getString("Nome"));
+                tmp.setValor_unitario_compra(resultado.getDouble("Valor_Unitario_Compra"));
+                tmp.setValor_unitario_venda(resultado.getDouble("Valor_Unitario_Venda"));
                 produtos.add(tmp);
             }
             return produtos;
@@ -125,7 +125,7 @@ public class ProdutoDAO {
     public List<Produto> buscar(Produto filtro) throws Exception{
         try {
             
-            String sql = "select * from produtos ";
+            String sql = "select * from Produtos ";
             String where = "";
             
             if(filtro.getDescricao().length() > 0){
@@ -138,23 +138,23 @@ public class ProdutoDAO {
             if (filtro.getValor_unitario_compra() > 0) {
                 if(where.length() > 0) 
                     where = where + " and ";
-                where = where + " valor_unitario_compra = " + filtro.getValor_unitario_compra();
+                where = where + " Valor_Unitario_Compra = " + filtro.getValor_unitario_compra();
             }
             if (filtro.getValor_unitario_venda() > 0) {
                 if(where.length() > 0) 
                     where = where + " and ";
-                where = where + " valor_unitario_venda = " + filtro.getValor_unitario_compra();
+                where = where + " Valor_Unitario_Venda = " + filtro.getValor_unitario_compra();
             }
             if (filtro.getEstoque() > 0) {
                 if(where.length() > 0) 
                     where = where + " and ";
-                where = where + " qtd = " + filtro.getEstoque();
+                where = where + " Quantidade = " + filtro.getEstoque();
             }
             
             if (filtro.getId() > 0) {
                 if(where.length() > 0) 
                     where = where + " and ";
-                where = where + " id = " + filtro.getId();
+                where = where + " Id_Produto = " + filtro.getId();
             }
             
             if(where.length() > 0){
@@ -170,12 +170,12 @@ public class ProdutoDAO {
                 
                 Produto tmp = new Produto();
                 
-                tmp.setId(resultado.getInt("id"));
-                tmp.setDescricao(resultado.getString("descricao"));
-                tmp.setNome(resultado.getString("nome"));
-                tmp.setValor_unitario_compra(resultado.getDouble("valor_unitario_compra"));
-                tmp.setValor_unitario_venda(resultado.getDouble("valor_unitario_venda"));
-                tmp.setEstoque(resultado.getInt("qtd"));
+                tmp.setId(resultado.getInt("Id_Produto"));
+                tmp.setDescricao(resultado.getString("Descricao"));
+                tmp.setNome(resultado.getString("Nome"));
+                tmp.setValor_unitario_compra(resultado.getDouble("Valor_Unitario_Compra"));
+                tmp.setValor_unitario_venda(resultado.getDouble("Valor_Unitario_Venda"));
+                tmp.setEstoque(resultado.getInt("Quantidade"));
                 produtos.add(tmp);
             }
             return produtos;
