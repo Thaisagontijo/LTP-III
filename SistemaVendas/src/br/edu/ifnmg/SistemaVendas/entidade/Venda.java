@@ -7,20 +7,26 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+        
 public class Venda {
     private int id;
     private double valorTotal;
     private Date data;
     private UsuarioSistema usuarioSistema;
     private Cliente cliente;
-    
+    private FormadePagamento formadepagamento;
+    private boolean ok;
     List<ItemVenda> itens;
     
             public Venda(){
-                id = 0;
-                valorTotal = 0;
-                data = new Date();
-                itens = new LinkedList<ItemVenda>();
+                this.id = 0;
+                this.valorTotal = 0;
+                this.data = new Date();
+                this.itens = new LinkedList<ItemVenda>();
+                this.formadepagamento = new FormadePagamento();
+                this.cliente = new Cliente();
+                this.usuarioSistema = new UsuarioSistema();
+                this.ok= true;
             }
 
     public int getId() {
@@ -63,6 +69,14 @@ public class Venda {
         this.cliente = cliente;
     }
 
+    public FormadePagamento getFormadepagamento() {
+        return formadepagamento;
+    }
+
+    public void setFormadepagamento(FormadePagamento formadepagamento) {
+        this.formadepagamento = formadepagamento;
+    }
+
     public List<ItemVenda> getItens() {
         return itens;
     }
@@ -71,20 +85,20 @@ public class Venda {
         this.itens = itens;
     }
 
-    @Override
-    public String toString() {
-        return "Venda{" + "valorTotal=" + valorTotal + ", data=" + data + ", usuarioSistema=" + usuarioSistema + ", cliente=" + cliente + '}';
+    public boolean isOk() {
+        return ok;
     }
 
-    public Venda(int id, double valorTotal, Date data, UsuarioSistema usuarioSistema, Cliente cliente, List<ItemVenda> itens) {
-        this.id = id;
-        this.valorTotal = valorTotal;
-        this.data = data;
-        this.usuarioSistema = usuarioSistema;
-        this.cliente = cliente;
-        this.itens = itens;
+    public void setOk(boolean ok) {
+        this.ok = ok;
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "valorTotal=" + valorTotal + ", data=" + data + ", usuarioSistema=" + usuarioSistema + ", cliente=" + cliente + ", formadepagamento=" + formadepagamento + '}';
     }
         
+    
      public void add(ItemVenda i){
          if(!itens.contains(i)){
              itens.add(i);
@@ -97,5 +111,15 @@ public class Venda {
              valorTotal -= i.getProduto().getValor_unitario_venda() * i.getQuantidade();
          }
      }
+
+    public Venda(int id, double valorTotal, Date data, UsuarioSistema usuarioSistema, Cliente cliente, FormadePagamento formadepagamento, List<ItemVenda> itens) {
+        this.id = id;
+        this.valorTotal = valorTotal;
+        this.data = data;
+        this.usuarioSistema = usuarioSistema;
+        this.cliente = cliente;
+        this.formadepagamento = formadepagamento;
+        this.itens = itens;
+    }
             
 }

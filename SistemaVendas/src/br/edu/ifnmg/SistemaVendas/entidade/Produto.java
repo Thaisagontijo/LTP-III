@@ -13,7 +13,12 @@ public class Produto {
  private int estoque;
 
  public Produto(){
-    
+        this.id = 0;
+        this.descricao = "";
+        this.nome = "";
+        this.valor_unitario_compra = 0;
+        this.valor_unitario_venda = 0;
+        this.estoque = 0;
 }
     public int getId() {
         return id;
@@ -108,12 +113,13 @@ public class Produto {
         return "Produto{" + "nome=" + nome + ", valor_unitario_venda=" + valor_unitario_venda + '}';
     }
 
-    public Produto(int id, String descricao, String nome, double valor_unitario_compra, double valor_unitario_venda) {
+    public Produto(int id, String descricao, String nome, double valor_unitario_compra, double valor_unitario_venda, int estoque) {
         this.id = id;
         this.descricao = descricao;
         this.nome = nome;
         this.valor_unitario_compra = valor_unitario_compra;
         this.valor_unitario_venda = valor_unitario_venda;
+        this.estoque = estoque;
     }
 
  

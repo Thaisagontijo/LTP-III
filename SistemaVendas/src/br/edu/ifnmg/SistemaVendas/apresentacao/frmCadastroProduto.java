@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import br.edu.ifnmg.SistemaVendas.entidade.ErroValidacaoException;
 import br.edu.ifnmg.SistemaVendas.entidade.Produto;
 import javax.swing.JOptionPane;
 
@@ -161,11 +162,17 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
             else {
                 Produto produto = new Produto();
                 produto.setDescricao(txtDescricao.getText());
-                produto.setNome(txtNome.getText());
-                produto.setValor_unitario_compra(Double.parseDouble(txtValor_Compra.getText()));
-                produto.setValor_unitario_venda(Double.parseDouble(txtValor_Venda.getText()));
-                produto.setEstoque(Integer.parseInt(txtQtd.getText()));
                 
+                try{
+                    produto.setNome(txtNome.getText());
+                    produto.setValor_unitario_compra(Double.parseDouble(txtValor_Compra.getText()));
+                    produto.setValor_unitario_venda(Double.parseDouble(txtValor_Venda.getText()));
+                    produto.setEstoque(Integer.parseInt(txtQtd.getText()));
+                }catch(ErroValidacaoException ex){
+                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+                }catch( Exception ex){
+                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+                }
                 
                 JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
                  

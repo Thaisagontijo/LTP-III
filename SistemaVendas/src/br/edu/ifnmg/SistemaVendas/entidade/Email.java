@@ -15,7 +15,8 @@ public class Email {
         this.endereco = endereco;
     }
      public Email(){
-         
+         this.id =0;
+         this.endereco = "";
      }
     @Override
     public int hashCode() {

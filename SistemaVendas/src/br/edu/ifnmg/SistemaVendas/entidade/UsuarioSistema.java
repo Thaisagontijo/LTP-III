@@ -11,7 +11,9 @@ public class UsuarioSistema extends Pessoa{
     private String senha;
     
     public UsuarioSistema(){
-        
+        this.id = 0;
+        this.usuario = "";
+        this.senha = "";
     } 
 
     public UsuarioSistema(int id, String usuario, String senha) {
@@ -23,6 +25,14 @@ public class UsuarioSistema extends Pessoa{
     @Override
     public String toString() {
         return "UsuarioSistema{" + "usuario=" + usuario + '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 

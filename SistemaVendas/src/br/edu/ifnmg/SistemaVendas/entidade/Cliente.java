@@ -5,19 +5,35 @@
 package br.edu.ifnmg.SistemaVendas.entidade;
 
 public class Cliente extends Pessoa {
-    private int id;
+    private int idCliente;
 
     public Cliente(){
-        
+        this.idCliente = 0;
     }
     public Cliente(int id) {
-        this.id = id;
+        this.idCliente = id;
     }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) throws ErroValidacaoException  {
+        if(idCliente < 0 )
+               throw new ErroValidacaoException("O id não pode ser menor que 0 !");
+        else
+            this.idCliente = idCliente;this.idCliente = idCliente;
+    }
+
+
+
+    
+        
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + this.id;
+        hash = 41 * hash + this.idCliente;
         return hash;
     }
 
@@ -30,7 +46,7 @@ public class Cliente extends Pessoa {
             return false;
         }
         final Cliente other = (Cliente) obj;
-        if (this.id != other.id) {
+        if (this.idCliente != other.idCliente) {
             return false;
         }
         return true;

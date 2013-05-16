@@ -7,11 +7,12 @@ package br.edu.ifnmg.SistemaVendas.entidade;
 import br.edu.ifnmg.SistemaVendas.entidade.Telefone;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class Pessoa {
-    private int id;
+    private int idPessoa;
     private String nome;
     private Date dataNascimento;       
     private int cpf;
@@ -21,7 +22,7 @@ public class Pessoa {
     private List<Email> emails;
 
     public Pessoa(int id, String nome, Date dataNascimento, int cpf, String rg, List<Endereco> enderecos, List<Telefone> telefones, List<Email> emails) {
-        this.id = id;
+        this.idPessoa = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
@@ -31,13 +32,20 @@ public class Pessoa {
         this.emails = emails;
     }
     public Pessoa(){
-        
+       this.idPessoa = 0;
+        this.nome = "";
+        this.dataNascimento = new Date();
+        this.cpf = 0;
+        this.rg = "";
+        this.enderecos = new LinkedList<>();
+        this.telefones = new LinkedList<>();
+        this.emails = new LinkedList<>(); 
     }
            
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + this.id;
+        hash = 11 * hash + this.idPessoa;
         hash = 11 * hash + Objects.hashCode(this.nome);
         hash = 11 * hash + Objects.hashCode(this.dataNascimento);
         hash = 11 * hash + this.cpf;
@@ -57,7 +65,7 @@ public class Pessoa {
             return false;
         }
         final Pessoa other = (Pessoa) obj;
-        if (this.id != other.id) {
+        if (this.idPessoa != other.idPessoa) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
@@ -90,15 +98,15 @@ public class Pessoa {
     }
 
     
-    public int getId() {
-        return id;
+    public int getIdPessoa() {
+        return idPessoa;
     }
 
-    public void setId(int id)throws ErroValidacaoException{
-        if (id <0)
+    public void setIdPessoa(int id)throws ErroValidacaoException{
+        if (idPessoa <0)
             throw new ErroValidacaoException("Id menor que 0!");
         else
-        this.id = id;
+        this.idPessoa = idPessoa;
     }
 
     public String getNome() {
@@ -118,14 +126,14 @@ public class Pessoa {
     }
 
      public void setDataNascimento(Date datanascimento) throws Exception{
-        SimpleDateFormat dtNascimento = new SimpleDateFormat("dd/MM/yyyy");
-        Date data = dtNascimento.parse("01/01/1900"); 
-        
-        if (datanascimento.after(data)){
+        Date dataMinima = new Date("1990/01/01");
+        if(!dataNascimento.before(dataMinima)) {
             this.dataNascimento = dataNascimento;
-        } else {
-            throw new Exception("Data de Nascimento Inválida. A data deve ser superior ou igual a 01/01/1900.");
         }
+        else {
+            throw new Exception ("Data de Nascimento Inválida. A data deve ser superior ou igual a 01/01/1900");
+        }
+
     }
 
     public int getCpf() {
@@ -169,29 +177,35 @@ public class Pessoa {
     }
     
     public void addTelefone(Telefone telefone){
+        if(!this.telefones.equals(telefone)){
         this.telefones.add(telefone);
     }
-    
+    }
     public void removeTelefone(Telefone telefone){
+        if(!this.telefones.equals(telefone)){
         telefones.remove(telefone);
     }
-    
+    }
     public void addEndereco(Endereco endereco){
+        if(!this.enderecos.equals(endereco)){
         enderecos.add(endereco);
     }
-    
+    }
     public void removeEndereco(Endereco endereco){
+        if(this.enderecos.equals(endereco)){
         enderecos.remove(endereco);
     }
-    
+    }
     public void addEmail(Email email){
+        if(!this.emails.equals(email)){
         emails.add(email);
     }
-    
+    }
     public void removeEmail(Email email){
+        if(this.emails.equals(email)){
         emails.remove(email);
     }
-    
+    }
       
     
 }
