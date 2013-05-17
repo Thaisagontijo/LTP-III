@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
 
@@ -28,7 +29,6 @@ public class frmVenda extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         lbValor = new javax.swing.JLabel();
         lbValorTotal = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JButton();
         TpDados = new javax.swing.JTabbedPane();
         PanelDadosGerais = new javax.swing.JPanel();
         lbUsuario = new javax.swing.JLabel();
@@ -51,13 +51,6 @@ public class frmVenda extends javax.swing.JInternalFrame {
         setTitle("Vendas");
 
         lbValor.setText("Valor Total:");
-
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
 
         lbUsuario.setText("Usuario: ");
 
@@ -185,15 +178,10 @@ public class frmVenda extends javax.swing.JInternalFrame {
                         .addGap(229, 229, 229)
                         .addComponent(btnFecharVenda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(285, 285, 285))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lbValor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lbValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)))))
+                        .addComponent(lbValor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)))
                 .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
@@ -207,10 +195,8 @@ public class frmVenda extends javax.swing.JInternalFrame {
                         .addComponent(lbValor))
                     .addComponent(lbValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnFecharVenda))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addComponent(btnFecharVenda)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,7 +211,7 @@ public class frmVenda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAdicionaActionPerformed
 
     private void btnFecharVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharVendaActionPerformed
-        int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Salvar?","Deseja Salvar?", JOptionPane.OK_CANCEL_OPTION);
+     /*  int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Salvar?","Deseja Salvar?", JOptionPane.OK_CANCEL_OPTION);
         if (JOptionPane.OK_OPTION == confirmar){
             
             if(txtCliente.getText().isEmpty() ){
@@ -243,22 +229,14 @@ public class frmVenda extends javax.swing.JInternalFrame {
         }
         }
     }//GEN-LAST:event_btnFecharVendaActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        int confirmar = JOptionPane.showConfirmDialog(null, "Deseja Cancelar?","Deseja Cancelar?", JOptionPane.OK_CANCEL_OPTION);
-        if (JOptionPane.OK_OPTION == confirmar){
-        
-        this.dispose();
-        }
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
+*/
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox Cbusuario;
     private javax.swing.JPanel PanelDadosGerais;
     private javax.swing.JPanel PanelItensVenda;
     private javax.swing.JTabbedPane TpDados;
     private javax.swing.JButton btnAdiciona;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnFecharVenda;
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox cbCliente;

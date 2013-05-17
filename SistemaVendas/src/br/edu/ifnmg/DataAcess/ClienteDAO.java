@@ -169,7 +169,7 @@ public class ClienteDAO {
             }
         
            
-            if(!filtro.getCpf().isEmpty()){
+            if(filtro.getCpf()!=0){
                 if(where.length() > 0){
                     where = where + " AND ";
                 }

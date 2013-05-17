@@ -24,7 +24,7 @@ public class EnderecoDAO {
             if(obj.getId() == 0){
                 PreparedStatement comando = banco.getConexao()
                         .prepareStatement("INSERT INTO Enderecos (Rua,Cep,Bairro,Numero,Id_Pessoa,Cidade,Estado,Complemento) "
-                        + "VALUES(?,?,?,?,?,?,?)");
+                        + "VALUES(?,?,?,?,?,?,?,?)");
                 comando.setString(1, obj.getRua());
                 comando.setInt(2, obj.getCep());
                 comando.setString(3, obj.getBairro());

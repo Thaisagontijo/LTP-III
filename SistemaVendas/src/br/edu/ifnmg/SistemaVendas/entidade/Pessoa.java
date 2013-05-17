@@ -114,9 +114,14 @@ public class Pessoa {
     }
 
     public void setNome(String nome) throws Exception {
-        if(nome.length()>3 || nome.length()< 250){
-         this.nome = nome;}
+/*        if(nome.length()<3 || nome.length()> 250){
+        
         throw new Exception ("O nome tem que ser maior que 3 e menor que 250 caracteres");
+        }else{
+             this.nome = nome;}
+  */          
+         //lembrar de corrigir
+        this.nome = nome;
         }
         
 

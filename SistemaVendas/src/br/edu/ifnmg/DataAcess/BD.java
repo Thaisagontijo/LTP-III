@@ -30,6 +30,7 @@ public class BD {
             Class.forName("com.mysql.jdbc.Driver");
             conexao = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/vendas","root","");
+            conexao.setAutoCommit(false);
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(BD.class.getName()).log(Level.SEVERE, null, ex);                    
