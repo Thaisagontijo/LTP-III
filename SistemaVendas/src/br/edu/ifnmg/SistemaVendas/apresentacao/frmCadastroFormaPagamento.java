@@ -4,9 +4,20 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import br.edu.ifnmg.DataAcess.FormasPagamentoDAO;
+import br.edu.ifnmg.SistemaVendas.entidade.ErroValidacaoException;
+import br.edu.ifnmg.SistemaVendas.entidade.FormadePagamento;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
+
+    // Variables declaration - do not modify                     
+
+    // Variables declaration - do not modify                     
+
+    // Variables declaration - do not modify                     
 public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
 
     /**
@@ -101,8 +112,28 @@ public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "O campo Forma de Pagamento deve ser preenchido");
         }
             else{
-                JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
-                 
+                             
+             FormadePagamento aa = new FormadePagamento();
+            
+                aa.setNome(txtFormaPagamento.getText());
+                
+            
+                         
+                try {
+                    FormasPagamentoDAO dao = new FormasPagamentoDAO();
+                    
+                    if(dao.Salvar(aa)){
+                                      
+                    JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Erro ao gravar os dados");
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(frmCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                            limpaCampos();
+                   
             }
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -113,4 +144,8 @@ public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbFormaPagamento;
     private javax.swing.JTextField txtFormaPagamento;
     // End of variables declaration//GEN-END:variables
+
+    private void limpaCampos() {
+       
+    }
 }

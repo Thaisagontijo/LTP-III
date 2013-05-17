@@ -125,9 +125,9 @@ public class ClienteDAO {
    public List<Cliente> listarTodos()throws ErroValidacaoException, Exception{
        try{
            PreparedStatement comando = bd
-                   .getConexao().prepareStatement("SELECT c.id as Id_Cliente, p.id as "
+                   .getConexao().prepareStatement("SELECT c.Id_Cliente , p.Id_Pessoa as "
                    + "Id_Pessoa,p.nome,p.cpf,p.rg,p.data_nascimento FROM Pessoa p INNER "
-                   + "JOIN Clientes c on c.Id_Pessoa = p.id");
+                   + "JOIN Clientes c on c.Id_Pessoa = p.Id_Pessoa");
            
            ResultSet consulta = comando.executeQuery();
            comando.getConnection().commit();

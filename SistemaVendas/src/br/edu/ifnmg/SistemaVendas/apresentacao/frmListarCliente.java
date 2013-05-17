@@ -4,6 +4,16 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import br.edu.ifnmg.DataAcess.ClienteDAO;
+import br.edu.ifnmg.SistemaVendas.entidade.Cliente;
+import br.edu.ifnmg.SistemaVendas.entidade.ErroValidacaoException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ailton
@@ -13,10 +23,52 @@ public class frmListarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmListarCliente
      */
+    List<Cliente> lista;
+    DefaultTableModel modelo;
     public frmListarCliente() {
         initComponents();
+        try {
+            ClienteDAO dao = new ClienteDAO();
+            
+            lista = dao.listarTodos();
+        } catch (SQLException ex) {
+            Logger.getLogger(frmListarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ErroValidacaoException ex){
+            Logger.getLogger(frmListarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception ex){
+            Logger.getLogger(frmListarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        carregaCamposClientes(lista);
     }
 
+        private void carregaCamposClientes(List<Cliente> lista){
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Id_Cliente");
+        modelo.addColumn("Nome");
+        modelo.addColumn("CPF");
+        modelo.addColumn("RG");
+        modelo.addColumn("Data_Nascimento");
+       
+        
+        for(Cliente t : lista){
+            Vector v = new Vector();
+            v.add(0,t.getIdCliente());
+            v.add(1,t.getNome());
+            v.add(2,t.getCpf());
+            v.add(3,t.getRg());
+            v.add(4,t.getDataNascimento());
+           
+            modelo.addRow(v);
+        }
+        
+        tblClientes.setModel(modelo);
+    
+    }
+
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,13 +95,10 @@ public class frmListarCliente extends javax.swing.JInternalFrame {
 
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Nome Cliente", "CPF"
+
             }
         ));
         jScrollPane1.setViewportView(tblClientes);
@@ -100,7 +149,7 @@ public class frmListarCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluir))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         pack();

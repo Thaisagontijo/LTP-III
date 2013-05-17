@@ -61,9 +61,11 @@ public class UsuarioSistemaDAO {
         try{
             
             PreparedStatement comando = banco.getConexao()
-                    .prepareStatement("select p.id as Id_Pessoa,Nome,CPF,RG,"
-                    + "Data_Nascimento,u.id as Id_Usuario, usuario from Pessoa "
-                    + "p inner join Usuarios_Sistema u on u.id_pessoa = p.id WHERE u.id = ?");
+                    .prepareStatement("select p.id as Id_Usuarios_Sistema,p.id as"
+                    +"Id_Pessoa,p.nome,p.cpf,p.rg,p.data_nascimento, u.id as Id_Usuario FROM Pessoa p INNER "
+                    +"JOIN Usuarios_Sistema u on u.Id_Pessoa = p.id WHERE u.id = ?");
+            
+
             comando.setInt(1, id);
             
             ResultSet consulta = comando.executeQuery();

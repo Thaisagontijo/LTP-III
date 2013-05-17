@@ -548,7 +548,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -624,13 +624,20 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
              
                 try {
                     ClienteDAO dao = new ClienteDAO();
-                    dao.Salvar(aa);
+                    if(dao.Salvar(aa)){
+                                      
+                    JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Erro ao gravar os dados");
+                    }
+
                 } catch (ErroValidacaoException ex) {
                     Logger.getLogger(frmCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (Exception ex) {
                     Logger.getLogger(frmCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                 JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+                 
+                 
                             this.listaDeTelefones.clear();
                             this.emailLista.clear();
                             this.enderecoLista.clear();
