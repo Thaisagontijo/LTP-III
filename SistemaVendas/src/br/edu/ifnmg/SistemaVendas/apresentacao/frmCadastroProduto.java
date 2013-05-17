@@ -4,8 +4,11 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
+import br.edu.ifnmg.DataAcess.ProdutoDAO;
 import br.edu.ifnmg.SistemaVendas.entidade.ErroValidacaoException;
 import br.edu.ifnmg.SistemaVendas.entidade.Produto;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -161,21 +164,40 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
         }
             else {
                 Produto produto = new Produto();
-                produto.setDescricao(txtDescricao.getText());
                 
-                try{
+                   
+                try {
+                   produto.setDescricao(txtDescricao.getText());
                     produto.setNome(txtNome.getText());
                     produto.setValor_unitario_compra(Double.parseDouble(txtValor_Compra.getText()));
                     produto.setValor_unitario_venda(Double.parseDouble(txtValor_Venda.getText()));
                     produto.setEstoque(Integer.parseInt(txtQtd.getText()));
-                }catch(ErroValidacaoException ex){
-                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-                }catch( Exception ex){
-                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-                }
                 
-                JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+            
+                   
+                } catch (Exception ex) {
+                    Logger.getLogger(frmCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    
+                try {
+                    ProdutoDAO dao = new ProdutoDAO();
+                    
+                    if(dao.Salvar(produto)){
+                                      
+                    JOptionPane.showMessageDialog(this,"Dados gravados com sucesso");
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Erro ao gravar os dados");
+                    }
+                
+          
+                } catch (Exception ex) {
+                    Logger.getLogger(frmCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
                  
+                 
+                
+                            limpaCampos();
+                   
             }
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -202,4 +224,13 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtValor_Compra;
     private javax.swing.JTextField txtValor_Venda;
     // End of variables declaration//GEN-END:variables
+
+    private void limpaCampos() {
+        this.txtDescricao.setText("");
+        this.txtNome.setText("");
+        this.txtQtd.setText("");
+        this.txtValor_Compra.setText("");
+        this.txtValor_Venda.setText("");
+        
+    }
 }

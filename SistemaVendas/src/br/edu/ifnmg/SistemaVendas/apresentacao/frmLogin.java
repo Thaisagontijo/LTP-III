@@ -34,6 +34,7 @@ public class frmLogin extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,6 +67,13 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar.setText("Sair");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,13 +88,13 @@ public class frmLogin extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(txtSenha))
-                        .addGap(27, 27, 27))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
+                            .addComponent(txtSenha)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
                         .addComponent(btnLogin)
-                        .addGap(87, 87, 87)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelar)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,9 +110,11 @@ public class frmLogin extends javax.swing.JFrame {
                         .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22)
-                .addComponent(btnLogin)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogin)
+                    .addComponent(btnCancelar))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,19 +125,21 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        if(txtUsuario.getText().isEmpty() && txtSenha.getText().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "Todos os campos devem ser preenchidos");
-        } else {
-            
-     frmPrincipal janela = new frmPrincipal();
-        
-        
-        janela.setVisible(true);
-        
-       this.dispose();
+         if(txtUsuario.getText().equals("thaisa") && (txtSenha.getText().equals("thaisa"))){
+            JOptionPane.showMessageDialog(rootPane,"Bem Vindo ao Sistema");
+            new frmPrincipal().setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(rootPane,"Usuario ou Senha Inválidos!");
         }
     
+
+    
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +176,7 @@ public class frmLogin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbSenha;
