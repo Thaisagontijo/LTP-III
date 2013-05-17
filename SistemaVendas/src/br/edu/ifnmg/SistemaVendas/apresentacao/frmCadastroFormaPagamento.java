@@ -146,6 +146,6 @@ public class frmCadastroFormaPagamento extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void limpaCampos() {
-       
+       this.txtFormaPagamento.setText("");
     }
 }

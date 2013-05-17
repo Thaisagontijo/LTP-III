@@ -14,10 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Ailton
- */
 public class frmListarCliente extends javax.swing.JInternalFrame {
 
     /**
@@ -63,7 +59,7 @@ public class frmListarCliente extends javax.swing.JInternalFrame {
         }
         
         tblClientes.setModel(modelo);
-    
+        tblClientes.repaint();
     }
 
     

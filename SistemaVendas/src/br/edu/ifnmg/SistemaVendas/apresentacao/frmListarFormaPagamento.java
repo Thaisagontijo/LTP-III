@@ -4,18 +4,65 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
-/**
- *
- * @author Ailton
- */
+
+import br.edu.ifnmg.DataAcess.FormasPagamentoDAO;
+import br.edu.ifnmg.SistemaVendas.entidade.ErroValidacaoException;
+import br.edu.ifnmg.SistemaVendas.entidade.FormadePagamento;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
+
 public class frmListarFormaPagamento extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmListarFormaPagamento
      */
+     List<FormadePagamento> lista;
+    DefaultTableModel modelo;
+    
     public frmListarFormaPagamento() {
         initComponents();
+        
+        try {
+            FormasPagamentoDAO dao = new FormasPagamentoDAO();
+            
+            lista = dao.ListarTodos();
+        } catch (SQLException ex) {
+            Logger.getLogger(frmListarFormaPagamento.class.getName()).log(Level.SEVERE, null, ex);
+       
+        }catch(Exception ex){
+            Logger.getLogger(frmListarFormaPagamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        carregaCampoFormasPagamento(lista);
     }
+
+        private void carregaCampoFormasPagamento(List<FormadePagamento> lista){
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Id_Cliente");
+        modelo.addColumn("Nome");
+               
+        
+        for(FormadePagamento t : lista){
+            Vector v = new Vector();
+            v.add(0,t.getId());
+            v.add(1,t.getNome());
+            
+           
+            modelo.addRow(v);
+        }
+        
+        tblFormaPagamento.setModel(modelo);
+        tblFormaPagamento.repaint();
+    }
+
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,16 +89,18 @@ public class frmListarFormaPagamento extends javax.swing.JInternalFrame {
         lbPagamento.setText("Pesquisar Forma de Pagamento:");
 
         btnBusca.setText("Buscar");
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
 
         tblFormaPagamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                "Forma de Pagamento"
+
             }
         ));
         jScrollPane1.setViewportView(tblFormaPagamento);
@@ -96,11 +145,16 @@ public class frmListarFormaPagamento extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluir)
                     .addComponent(btnAlterar))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+      
+    }//GEN-LAST:event_btnBuscaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnBusca;

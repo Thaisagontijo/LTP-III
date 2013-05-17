@@ -126,12 +126,15 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
          if(txtUsuario.getText().equals("thaisa") && (txtSenha.getText().equals("thaisa"))){
-            JOptionPane.showMessageDialog(rootPane,"Bem Vindo ao Sistema");
+            JOptionPane.showMessageDialog(rootPane,"Sistema Inicializado");
             new frmPrincipal().setVisible(true);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(rootPane,"Usuario ou Senha Inválidos!");
+            
+            limpacampos();
         }
+    
     
 
     
@@ -184,4 +187,9 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void limpacampos() {
+       this.txtSenha.setText("");
+       this.txtUsuario.setText("");
+    }
 }

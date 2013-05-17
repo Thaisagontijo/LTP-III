@@ -4,17 +4,68 @@
  */
 package br.edu.ifnmg.SistemaVendas.apresentacao;
 
-/**
- *
- * @author Ailton
- */
+import br.edu.ifnmg.DataAcess.ClienteDAO;
+import br.edu.ifnmg.DataAcess.ProdutoDAO;
+import br.edu.ifnmg.SistemaVendas.entidade.Cliente;
+import br.edu.ifnmg.SistemaVendas.entidade.ErroValidacaoException;
+import br.edu.ifnmg.SistemaVendas.entidade.Produto;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
+
 public class frmListarProdutos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmListarProdutos
      */
+     
+    List<Produto> lista;
+    DefaultTableModel modelo;
     public frmListarProdutos() {
         initComponents();
+       
+        try {
+            ProdutoDAO dao = new ProdutoDAO();
+            
+            lista = dao.listarTodos();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frmListarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ErroValidacaoException ex){
+            Logger.getLogger(frmListarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception ex){
+            Logger.getLogger(frmListarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        carregaCampoProduto(lista);
+    }
+
+        private void carregaCampoProduto(List<Produto> lista){
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Id_Produto");
+        modelo.addColumn("Nome");
+        modelo.addColumn("Descricao");
+        modelo.addColumn("Valor_Unitario_Compra");
+        modelo.addColumn("Valor_Unitario_Venda");
+       
+        
+        for(Produto t : lista){
+            Vector v = new Vector();
+            v.add(0,t.getId());
+            v.add(1,t.getNome());
+            v.add(2,t.getDescricao());
+            v.add(3,t.getValor_unitario_compra());
+            v.add(4,t.getValor_unitario_venda());
+           
+            modelo.addRow(v);
+        }
+        
+        tblProduto.setModel(modelo);
+        tblProduto.repaint();
     }
 
     /**
@@ -45,13 +96,10 @@ public class frmListarProdutos extends javax.swing.JInternalFrame {
 
         tblProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Nome Produto", "Descrição"
+
             }
         ));
         jScrollPane1.setViewportView(tblProduto);
@@ -98,7 +146,7 @@ public class frmListarProdutos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluir))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
